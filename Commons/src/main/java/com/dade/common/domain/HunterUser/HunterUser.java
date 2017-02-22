@@ -7,10 +7,12 @@ import com.dade.common.basic.BasicModelObject;
  */
 public class HunterUser extends BasicModelObject {
 
-    String id;
-    String name;
+    private String id;
+    private String name;
 
-    Integer age;
+    private Integer age;
+
+    private String imageHeaderUrl;
 
     public String getId() {
         return id;
@@ -34,6 +36,14 @@ public class HunterUser extends BasicModelObject {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getImageHeaderUrl() {
+        return imageHeaderUrl;
+    }
+
+    public void setImageHeaderUrl(String imageHeaderUrl) {
+        this.imageHeaderUrl = imageHeaderUrl;
     }
 
     @Override
