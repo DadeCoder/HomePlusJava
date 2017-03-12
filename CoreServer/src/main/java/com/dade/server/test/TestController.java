@@ -4,6 +4,7 @@ import com.dade.common.domain.HunterUser.HunterUser;
 import com.dade.common.utils.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
@@ -19,6 +20,10 @@ public class TestController {
     @Autowired
     TestServices services;
 
+    @Autowired
+    RestTemplate restTemplate;
+
+
     @RequestMapping("/log")
     public String testLogUtil(){
         LogUtil.info("Hello LogUtil!");
@@ -33,6 +38,12 @@ public class TestController {
     @RequestMapping(value = "/add_post", method = RequestMethod.POST)
     public HunterUser addPost(@RequestBody HunterUser hunterUser){
         return services.addServicePost(hunterUser);
+    }
+
+    @RequestMapping(value = "/find/{phoneNumber}")
+    public HunterUser findByPhoneNumber(@PathVariable String phoneNumber){
+        final String uri = "http://mongo-server/api/hunter/find/" + phoneNumber;
+        return restTemplate.getForEntity(uri, HunterUser.class).getBody();
     }
 
     /**

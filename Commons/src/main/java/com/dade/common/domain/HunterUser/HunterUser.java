@@ -12,7 +12,13 @@ public class HunterUser extends BasicModelObject {
 
     private Integer age;
 
+    private String phoneNumber;
+    private String password;
+    private String role;
+
     private String imageHeaderUrl;
+
+    public static final String FIELD_PHONE_NUMBER = "phoneNumber";
 
     public String getId() {
         return id;
@@ -44,6 +50,30 @@ public class HunterUser extends BasicModelObject {
 
     public void setImageHeaderUrl(String imageHeaderUrl) {
         this.imageHeaderUrl = imageHeaderUrl;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

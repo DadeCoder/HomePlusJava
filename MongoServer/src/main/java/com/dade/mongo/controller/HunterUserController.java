@@ -39,7 +39,14 @@ public class HunterUserController {
 
     @RequestMapping(value = "/add_post", method = RequestMethod.POST)
     HunterUser addPost(@RequestBody HunterUser hunterUser){
-        return hunterUser;
+        return dao.insert(hunterUser);
+    }
+
+    @RequestMapping("/find/{phoneNumber}")
+    HunterUser findByPhoneNumber(@PathVariable String phoneNumber){
+
+        HunterUser dbUser = dao.findByPhoneNumber(phoneNumber);
+        return dbUser;
     }
 
 }
